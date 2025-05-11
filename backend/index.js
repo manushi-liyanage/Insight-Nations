@@ -12,11 +12,22 @@ const app = express()
 app.use(express.json());
 app.use(cookieParser());
 
-//enable cors with credentials (cookies)
+const allowedOrigins = [
+  'http://localhost:5173', // for local dev
+  'https://luminous-crostata-426d7f.netlify.app' // your Netlify production frontend
+];
+
 app.use(cors({
-    origin:`http://localhost:5173`,
-    credentials: true
-}))
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true // if you're using cookies or authorization headers
+}));
+
 
 app.use('/api', authRoutes);
 app.use('/api', favouriteRoutes);
