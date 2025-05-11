@@ -14,7 +14,7 @@ app.use(cookieParser());
 
 const allowedOrigins = [
   'http://localhost:5173', // for local dev
-  'https://luminous-crostata-426d7f.netlify.app' // your Netlify production frontend
+  'https://adorable-alpaca-8ae05b.netlify.app/' // your Netlify production frontend
 ];
 
 app.use(cors({
