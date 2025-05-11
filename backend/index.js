@@ -13,8 +13,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 const allowedOrigins = [
-  'http://localhost:5173', // for local dev
-  'https://adorable-alpaca-8ae05b.netlify.app/' // your Netlify production frontend
+  'http://localhost:5173', 
+  'https://adorable-alpaca-8ae05b.netlify.app' 
 ];
 
 app.use(cors({
